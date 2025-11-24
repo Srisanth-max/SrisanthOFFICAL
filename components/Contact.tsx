@@ -96,35 +96,35 @@ const Contact: React.FC = () => {
               <div className="pt-6 flex flex-wrap gap-4">
                  {PORTFOLIO_DATA.socials.github && (
                    <a href={PORTFOLIO_DATA.socials.github} target="_blank" rel="noopener noreferrer" className="group">
-                     <div className="w-14 h-14 rounded-2xl bg-[#1c1c1e] flex items-center justify-center text-gray-400 group-hover:text-white group-hover:bg-[#2c2c2e] transition-all duration-300 border border-white/5 group-hover:scale-110 group-hover:-translate-y-1">
+                     <div className="w-14 h-14 rounded-2xl bg-[#1c1c1e] flex items-center justify-center text-gray-400 group-hover:text-white group-hover:bg-[#2c2c2e] transition-all duration-300 border border-white/5 group-hover:scale-105">
                         <Github size={24} />
                      </div>
                    </a>
                  )}
                  {PORTFOLIO_DATA.socials.linkedin && (
                    <a href={PORTFOLIO_DATA.socials.linkedin} target="_blank" rel="noopener noreferrer" className="group">
-                     <div className="w-14 h-14 rounded-2xl bg-[#1c1c1e] flex items-center justify-center text-gray-400 group-hover:text-blue-500 group-hover:bg-[#2c2c2e] transition-all duration-300 border border-white/5 group-hover:scale-110 group-hover:-translate-y-1">
+                     <div className="w-14 h-14 rounded-2xl bg-[#1c1c1e] flex items-center justify-center text-gray-400 group-hover:text-blue-500 group-hover:bg-[#2c2c2e] transition-all duration-300 border border-white/5 group-hover:scale-105">
                         <Linkedin size={24} />
                      </div>
                    </a>
                  )}
                  {PORTFOLIO_DATA.socials.twitter && (
                    <a href={PORTFOLIO_DATA.socials.twitter} target="_blank" rel="noopener noreferrer" className="group">
-                     <div className="w-14 h-14 rounded-2xl bg-[#1c1c1e] flex items-center justify-center text-gray-400 group-hover:text-blue-400 group-hover:bg-[#2c2c2e] transition-all duration-300 border border-white/5 group-hover:scale-110 group-hover:-translate-y-1">
+                     <div className="w-14 h-14 rounded-2xl bg-[#1c1c1e] flex items-center justify-center text-gray-400 group-hover:text-blue-400 group-hover:bg-[#2c2c2e] transition-all duration-300 border border-white/5 group-hover:scale-105">
                         <Twitter size={24} />
                      </div>
                    </a>
                  )}
                  {PORTFOLIO_DATA.socials.instagram && (
                    <a href={PORTFOLIO_DATA.socials.instagram} target="_blank" rel="noopener noreferrer" className="group">
-                     <div className="w-14 h-14 rounded-2xl bg-[#1c1c1e] flex items-center justify-center text-gray-400 group-hover:text-pink-500 group-hover:bg-[#2c2c2e] transition-all duration-300 border border-white/5 group-hover:scale-110 group-hover:-translate-y-1">
+                     <div className="w-14 h-14 rounded-2xl bg-[#1c1c1e] flex items-center justify-center text-gray-400 group-hover:text-pink-500 group-hover:bg-[#2c2c2e] transition-all duration-300 border border-white/5 group-hover:scale-105">
                         <Instagram size={24} />
                      </div>
                    </a>
                  )}
                  {PORTFOLIO_DATA.socials.threads && (
                    <a href={PORTFOLIO_DATA.socials.threads} target="_blank" rel="noopener noreferrer" className="group">
-                     <div className="w-14 h-14 rounded-2xl bg-[#1c1c1e] flex items-center justify-center text-gray-400 group-hover:text-white group-hover:bg-[#2c2c2e] transition-all duration-300 border border-white/5 group-hover:scale-110 group-hover:-translate-y-1">
+                     <div className="w-14 h-14 rounded-2xl bg-[#1c1c1e] flex items-center justify-center text-gray-400 group-hover:text-white group-hover:bg-[#2c2c2e] transition-all duration-300 border border-white/5 group-hover:scale-105">
                         <AtSign size={24} />
                      </div>
                    </a>
