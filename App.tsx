@@ -8,6 +8,7 @@ import Income from './components/Income';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ChatAssistant from './components/ChatAssistant';
 import { ArrowUp } from 'lucide-react';
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <ChatAssistant />
 
       {/* Back to Top Button */}
       <button

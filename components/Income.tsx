@@ -179,7 +179,7 @@ const Income: React.FC = () => {
                 href="https://t.me/srisanthtradex_bot" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-full py-4 rounded-2xl bg-[#229ED9] hover:bg-[#1e8ubc] text-white font-bold text-lg flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                className="w-full py-4 rounded-2xl bg-[#229ED9] hover:bg-[#1e8fbc] text-white font-bold text-lg flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
              >
                 <Send size={20} /> Join My Telegram
              </a>
