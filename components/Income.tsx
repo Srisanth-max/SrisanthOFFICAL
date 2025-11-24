@@ -1,12 +1,35 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { TrendingUp, Lock, X, Send, ShieldCheck } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../constants';
 
 const Income: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [incomeValue, setIncomeValue] = useState(0);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    return () => {
+      if (sectionRef.current) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   // Constants for Income Dashboard
   const TARGET_INCOME = 182423;
@@ -52,24 +75,24 @@ const Income: React.FC = () => {
 
   return (
     <>
-      <section id="income" className="py-24 relative overflow-hidden bg-black/50">
+      <section id="income" className="py-24 relative overflow-hidden bg-black/50" ref={sectionRef}>
         {/* Background Glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-green-900/10 rounded-full blur-[120px] pointer-events-none"></div>
 
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <div className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
           
-          <div className="mb-12">
+          <div className={`mb-12 ${isVisible ? 'animate-fade-in-up' : ''}`}>
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Financial Milestones</h2>
               <p className="text-gray-400 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
                   Beyond coding, I actively participate in financial markets.
               </p>
           </div>
 
-          <div className="flex justify-center">
+          <div className={`flex justify-center ${isVisible ? 'animate-fade-in-up' : ''}`} style={{ animationDelay: '0.2s' }}>
               {/* Trigger Card */}
               <div 
                   onClick={() => setIsModalOpen(true)}
-                  className="relative cursor-pointer group flex flex-col items-center gap-6 px-10 py-10 rounded-[2.5rem] border border-white/5 bg-[#1c1c1e] hover:border-white/20 hover:bg-[#242426] hover:scale-105 transition-all duration-500 w-full md:w-auto min-w-[300px] shadow-2xl"
+                  className="relative cursor-pointer group flex flex-col items-center gap-6 px-10 py-10 rounded-[2.5rem] border border-white/5 bg-[#1c1c1e] hover:border-white/20 hover:bg-[#242426] hover:scale-105 transition-all duration-500 w-full md:w-auto min-w-[300px] shadow-2xl hover:shadow-green-500/10"
               >
                   {!isUnlocked ? (
                     <>

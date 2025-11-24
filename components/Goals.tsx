@@ -1,8 +1,32 @@
 
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Heart, BrainCircuit } from 'lucide-react';
 
 const Goals: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    return () => {
+      if (sectionRef.current) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const cards = document.querySelectorAll('.spotlight-card');
     cards.forEach((card) => {
@@ -16,10 +40,10 @@ const Goals: React.FC = () => {
   };
 
   return (
-    <section id="goals" className="py-24 relative overflow-hidden" onMouseMove={handleMouseMove}>
+    <section id="goals" className="py-24 relative overflow-hidden" ref={sectionRef} onMouseMove={handleMouseMove}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        <div className="text-center mb-20">
+        <div className={`text-center mb-20 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">My Aspirations</h2>
           <p className="text-gray-400 text-xl font-light max-w-2xl mx-auto">The path I am walking towards, illuminated by purpose.</p>
         </div>
@@ -27,7 +51,7 @@ const Goals: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           
           {/* Goal 1: Good Person - Spotlight Card */}
-          <div className="group spotlight-card relative rounded-[2.5rem] bg-[#1c1c1e] border border-white/5 transition-transform duration-500 hover:scale-[1.01] shadow-2xl">
+          <div className={`group spotlight-card relative rounded-[2.5rem] bg-[#1c1c1e] border border-white/5 transition-transform duration-500 hover:scale-[1.01] shadow-2xl ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.2s' }}>
              <div className="spotlight-border"></div>
              <div className="relative z-10 p-10 md:p-14 h-full flex flex-col">
                 <div className="absolute top-0 right-0 p-12 opacity-10 group-hover:opacity-20 transition-all duration-500 group-hover:scale-110">
@@ -51,7 +75,7 @@ const Goals: React.FC = () => {
           </div>
 
           {/* Goal 2: AI Engineer - Spotlight Card */}
-          <div className="group spotlight-card relative rounded-[2.5rem] bg-[#1c1c1e] border border-white/5 transition-transform duration-500 hover:scale-[1.01] shadow-2xl">
+          <div className={`group spotlight-card relative rounded-[2.5rem] bg-[#1c1c1e] border border-white/5 transition-transform duration-500 hover:scale-[1.01] shadow-2xl ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.4s' }}>
              <div className="spotlight-border"></div>
              <div className="relative z-10 p-10 md:p-14 h-full flex flex-col">
                  <div className="absolute top-0 right-0 p-12 opacity-10 group-hover:opacity-20 transition-all duration-500 group-hover:scale-110">

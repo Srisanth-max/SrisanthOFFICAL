@@ -1,11 +1,34 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Mail, MapPin, Send, Instagram, Twitter, AtSign, Github, Linkedin } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../constants';
 
 const Contact: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    return () => {
+      if (sectionRef.current) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   // Function to mask email for privacy
   const getMaskedEmail = (email: string) => {
@@ -34,11 +57,11 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-20" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
           
-          <div>
+          <div className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
             <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">Let's connect.</h2>
             <p className="text-gray-400 text-xl mb-12">
               I'm always open to discussing new projects, internships, or creative ideas. Whether you have a question or just want to say hi, I'll try my best to get back to you!
@@ -73,35 +96,35 @@ const Contact: React.FC = () => {
               <div className="pt-6 flex flex-wrap gap-4">
                  {PORTFOLIO_DATA.socials.github && (
                    <a href={PORTFOLIO_DATA.socials.github} target="_blank" rel="noopener noreferrer" className="group">
-                     <div className="w-14 h-14 rounded-2xl bg-[#1c1c1e] flex items-center justify-center text-gray-400 group-hover:text-white group-hover:bg-[#2c2c2e] transition-all duration-300 border border-white/5">
+                     <div className="w-14 h-14 rounded-2xl bg-[#1c1c1e] flex items-center justify-center text-gray-400 group-hover:text-white group-hover:bg-[#2c2c2e] transition-all duration-300 border border-white/5 group-hover:scale-110 group-hover:-translate-y-1">
                         <Github size={24} />
                      </div>
                    </a>
                  )}
                  {PORTFOLIO_DATA.socials.linkedin && (
                    <a href={PORTFOLIO_DATA.socials.linkedin} target="_blank" rel="noopener noreferrer" className="group">
-                     <div className="w-14 h-14 rounded-2xl bg-[#1c1c1e] flex items-center justify-center text-gray-400 group-hover:text-blue-500 group-hover:bg-[#2c2c2e] transition-all duration-300 border border-white/5">
+                     <div className="w-14 h-14 rounded-2xl bg-[#1c1c1e] flex items-center justify-center text-gray-400 group-hover:text-blue-500 group-hover:bg-[#2c2c2e] transition-all duration-300 border border-white/5 group-hover:scale-110 group-hover:-translate-y-1">
                         <Linkedin size={24} />
                      </div>
                    </a>
                  )}
                  {PORTFOLIO_DATA.socials.twitter && (
                    <a href={PORTFOLIO_DATA.socials.twitter} target="_blank" rel="noopener noreferrer" className="group">
-                     <div className="w-14 h-14 rounded-2xl bg-[#1c1c1e] flex items-center justify-center text-gray-400 group-hover:text-blue-400 group-hover:bg-[#2c2c2e] transition-all duration-300 border border-white/5">
+                     <div className="w-14 h-14 rounded-2xl bg-[#1c1c1e] flex items-center justify-center text-gray-400 group-hover:text-blue-400 group-hover:bg-[#2c2c2e] transition-all duration-300 border border-white/5 group-hover:scale-110 group-hover:-translate-y-1">
                         <Twitter size={24} />
                      </div>
                    </a>
                  )}
                  {PORTFOLIO_DATA.socials.instagram && (
                    <a href={PORTFOLIO_DATA.socials.instagram} target="_blank" rel="noopener noreferrer" className="group">
-                     <div className="w-14 h-14 rounded-2xl bg-[#1c1c1e] flex items-center justify-center text-gray-400 group-hover:text-pink-500 group-hover:bg-[#2c2c2e] transition-all duration-300 border border-white/5">
+                     <div className="w-14 h-14 rounded-2xl bg-[#1c1c1e] flex items-center justify-center text-gray-400 group-hover:text-pink-500 group-hover:bg-[#2c2c2e] transition-all duration-300 border border-white/5 group-hover:scale-110 group-hover:-translate-y-1">
                         <Instagram size={24} />
                      </div>
                    </a>
                  )}
                  {PORTFOLIO_DATA.socials.threads && (
                    <a href={PORTFOLIO_DATA.socials.threads} target="_blank" rel="noopener noreferrer" className="group">
-                     <div className="w-14 h-14 rounded-2xl bg-[#1c1c1e] flex items-center justify-center text-gray-400 group-hover:text-white group-hover:bg-[#2c2c2e] transition-all duration-300 border border-white/5">
+                     <div className="w-14 h-14 rounded-2xl bg-[#1c1c1e] flex items-center justify-center text-gray-400 group-hover:text-white group-hover:bg-[#2c2c2e] transition-all duration-300 border border-white/5 group-hover:scale-110 group-hover:-translate-y-1">
                         <AtSign size={24} />
                      </div>
                    </a>
@@ -111,7 +134,7 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Dark Form */}
-          <div className="bg-[#1c1c1e] p-8 md:p-10 rounded-[2.5rem] border border-white/5 shadow-2xl">
+          <div className={`bg-[#1c1c1e] p-8 md:p-10 rounded-[2.5rem] border border-white/5 shadow-2xl ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.2s' }}>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-2 ml-2">Name</label>

@@ -4,8 +4,8 @@ import { ArrowRight, Code2, Brain, Sparkles } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../constants';
 
 const Hero: React.FC = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
   const [displayedText, setDisplayedText] = useState('');
+  const [scrollY, setScrollY] = useState(0);
 
   const handleScrollToAbout = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -14,6 +14,15 @@ const Hero: React.FC = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+  
+  // Parallax scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+        setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Typewriter Effect Logic
   useEffect(() => {
@@ -40,8 +49,8 @@ const Hero: React.FC = () => {
   return (
     <section id="home" className="relative min-h-screen flex flex-col justify-center pt-24 pb-12 overflow-hidden perspective-1000">
       
-      {/* CSS Starfield Background */}
-      <div className="absolute inset-0 bg-black z-0">
+      {/* CSS Starfield Background with Parallax */}
+      <div className="absolute inset-0 bg-black z-0" style={{ transform: `translateY(${scrollY * 0.3}px)` }}>
          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03]"></div>
          {/* Simple CSS stars */}
          {[...Array(20)].map((_, i) => (

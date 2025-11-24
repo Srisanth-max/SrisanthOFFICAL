@@ -154,13 +154,13 @@ const Projects: React.FC = () => {
                         key={item.id}
                         className="absolute inset-0 rounded-2xl overflow-hidden border border-white/10 bg-[#1c1c1e] shadow-[0_0_30px_rgba(0,0,0,0.8)] cursor-pointer group transition-all duration-300 hover:shadow-[0_0_40px_rgba(59,130,246,0.5)]"
                         style={{
-                            transform: `rotateY(${index * anglePerItem}deg) translateZ(var(--carousel-radius)) scale(0.9)`, 
+                            transform: `rotateY(${index * anglePerItem}deg) translateZ(var(--carousel-radius))`, 
                         }}
                         onClick={() => setSelectedImage(item.imageUrl)}
                     >
                         {/* Inner Container for Animation & Masking */}
                         <div 
-                            className={`w-full h-full relative opacity-0 ${isVisible ? 'animate-fade-in-up' : ''}`}
+                            className={`w-full h-full relative opacity-0 transition-transform duration-300 group-hover:scale-105 ${isVisible ? 'animate-fade-in-up' : ''}`}
                             style={{
                                 animationDelay: `${index * 0.15 + 0.3}s`, // Staggered delay
                                 animationFillMode: 'forwards',
@@ -173,7 +173,7 @@ const Projects: React.FC = () => {
                             <img 
                                 src={item.imageUrl} 
                                 alt={item.title} 
-                                className="w-full h-full object-cover select-none pointer-events-none md:pointer-events-auto transition-transform duration-300 group-hover:scale-105"
+                                className="w-full h-full object-cover select-none pointer-events-none md:pointer-events-auto"
                                 loading="lazy" 
                             />
                             <div className="absolute bottom-4 left-0 right-0 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 px-2">
