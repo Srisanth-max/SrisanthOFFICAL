@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    <!-- SEO & Meta Tags -->
+    <title>K.G.Srisanth | Student & Developer</title>
+    <meta name="description" content="Portfolio of K.G.Srisanth - A passionate Class 11 Student, Web Designer, and Trader aspiring to be an AI Software Engineer." />
+    <meta name="keywords" content="K.G.Srisanth, Portfolio, Web Design, Student, AI Engineer, Trading, Developer" />
+    <meta name="author" content="K.G.Srisanth" />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://srisanth.dev/" />
+    <meta property="og:title" content="K.G.Srisanth | Student & Developer" />
+    <meta property="og:description" content="Exploring technology, web design, and financial markets. View my gallery and journey." />
+    <meta property="og:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEmX4QstuIhvQf7W7aXw_cPjnx-F8bRbygS7Tt4YveFoWjsD74OAc86wB1nLQkSnQI2TFfH12THe2XtTqvIfpFhHnaWfToc36d7fUaW7XC1VFyDxAc7u3k9xx0uie8_hRYI6fGInEOcIjwAhxtCPOuRhgZN8iinlIHo2xTy7R3QLzTs7OdxLA1R0z4HO4/s1152/1763428929734.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://x.com/HereSrisanth" />
+    <meta property="twitter:title" content="K.G.Srisanth | Student & Developer" />
+    <meta property="twitter:description" content="Exploring technology, web design, and financial markets." />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              ios: {
+                bg: '#000000',
+                card: '#1c1c1e',
+                cardHover: '#2c2c2e',
+                blue: '#0A84FF',
+                indigo: '#5E5CE6',
+                text: '#F5F5F7',
+                subtext: '#86868b',
+                border: 'rgba(255, 255, 255, 0.1)',
+              }
+            },
+            animation: {
+              'blob': 'blob 10s infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'float-delayed': 'float 6s ease-in-out 3s infinite',
+              'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'shimmer': 'shimmer 2s linear infinite',
+              'flip-in': 'flipIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'pop-in': 'popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards',
+              'spin-slow': 'spin-y 20s linear infinite',
+              'money-float': 'moneyFloat 2s ease-out forwards',
+            },
+            keyframes: {
+              blob: {
+                '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                '100%': { transform: 'translate(0px, 0px) scale(1)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+              },
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(40px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              shimmer: {
+                '0%': { backgroundPosition: '200% 0' },
+                '100%': { backgroundPosition: '-200% 0' }
+              },
+              flipIn: {
+                '0%': { opacity: '0', transform: 'rotateX(90deg) translateY(50px)' },
+                '100%': { opacity: '1', transform: 'rotateX(0deg) translateY(0)' }
+              },
+              popIn: {
+                '0%': { opacity: '0', transform: 'scale(0.5) rotateX(45deg)' },
+                '100%': { opacity: '1', transform: 'scale(1) rotateX(0deg)' }
+              },
+              'spin-y': {
+                '0%': { transform: 'rotateY(0deg)' },
+                '100%': { transform: 'rotateY(360deg)' }
+              },
+              moneyFloat: {
+                '0%': { transform: 'translateY(0) scale(0.5)', opacity: '0' },
+                '20%': { opacity: '1', transform: 'scale(1)' },
+                '100%': { transform: 'translateY(-100px) scale(1.2)', opacity: '0' }
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Scroll behavior and padding for fixed nav */
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 100px;
+      }
+
+      /* Custom scrollbar for Dark Mode */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #000000;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+      
+      /* Glass utilities */
+      .glass {
+        background: rgba(28, 28, 30, 0.6);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      .glass-high {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(40px);
+        -webkit-backdrop-filter: blur(40px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+      }
+
+      body {
+        background-color: #000000;
+        color: #F5F5F7;
+        overflow-x: hidden;
+      }
+      
+      /* Typewriter Cursor */
+      .typing-cursor::after {
+        content: '|';
+        animation: blink 1s step-end infinite;
+        margin-left: 2px;
+        color: #60a5fa; /* blue-400 */
+      }
+
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+      }
+      
+      /* 3D Perspective Classes */
+      .perspective-1000 {
+        perspective: 1000px;
+      }
+      .perspective-2000 {
+        perspective: 2000px;
+      }
+      .preserve-3d {
+        transform-style: preserve-3d;
+      }
+      .transform-style-3d {
+        transform-style: preserve-3d;
+      }
+      
+      /* Spotlight Effect Utilities */
+      .spotlight-card {
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .spotlight-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+          800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+          rgba(255, 255, 255, 0.06), 
+          transparent 40%
+        );
+        opacity: 0;
+        transition: opacity 0.3s;
+        pointer-events: none;
+        z-index: 3;
+      }
+
+      .spotlight-card:hover::before {
+        opacity: 1;
+      }
+
+      .spotlight-border {
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 1px;
+        background: radial-gradient(
+          600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+          rgba(255, 255, 255, 0.4), 
+          transparent 40%
+        );
+        -webkit-mask: 
+          linear-gradient(#fff 0 0) content-box, 
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 0.3s;
+        pointer-events: none;
+        z-index: 4;
+      }
+
+      .spotlight-card:hover .spotlight-border {
+        opacity: 1;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0"
+  }
+}
+</script>
+</head>
+  <body class="antialiased selection:bg-ios-indigo selection:text-white">
+    <div id="root"></div>
+  </body>
+</html>
