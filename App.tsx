@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -8,6 +9,8 @@ import Income from './components/Income';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+// Fix: Import the ChatAssistant component to make it available in the app.
+import ChatAssistant from './components/ChatAssistant';
 
 function App() {
   return (
@@ -22,6 +25,8 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      {/* Fix: Render the ChatAssistant component. */}
+      <ChatAssistant />
     </div>
   );
 }

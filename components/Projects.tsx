@@ -188,7 +188,7 @@ const Projects: React.FC = () => {
             </div>
             
             {/* Floor Reflection/Shadow */}
-            <div className="absolute -bottom-20 w-[600px] h-[600px] bg-radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%) blur-3xl transform rotateX(90deg) pointer-events-none"></div>
+            <div className="absolute -bottom-20 w-[600px] h-[600px] bg-[radial-gradient(circle,_rgba(59,130,246,0.1)_0%,_transparent_70%)] blur-3xl transform rotateX(90deg) pointer-events-none"></div>
         </div>
 
       </div>

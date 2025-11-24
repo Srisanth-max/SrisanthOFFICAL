@@ -1,13 +1,5 @@
 
 
-// FIX: Added missing ChatMessage interface used by ChatAssistant.tsx
-export interface ChatMessage {
-  id: string;
-  role: 'user' | 'model';
-  text: string;
-  timestamp: number;
-}
-
 export interface Project {
   id: string;
   title: string;
@@ -28,6 +20,14 @@ export interface Experience {
 export interface SkillCategory {
   category: string;
   items: string[];
+}
+
+// Fix: Add ChatMessage interface to be used by the ChatAssistant component.
+export interface ChatMessage {
+  id: string;
+  role: 'user' | 'model';
+  text: string;
+  timestamp: number;
 }
 
 export interface PortfolioData {
